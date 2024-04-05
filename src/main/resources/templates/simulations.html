@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TH & Spring Boot</title>
+</head>
+<body>
+
+
+<h1> Simulations data table</h1>
+
+<p>Author:
+<span th:text ="${name}"> </span> </p>
+<table>
+<tr th:each="simulation:${simulationDataController}">
+
+    <td th:text="${simulation.id}"></td>
+    <td th:text="${simulation.user}"></td>
+    <td th:text="${simulation.time}"></td>
+    <td th:text="${simulation.createdAt}"></td>
+
+</tr>
+    </table>
+</body>
+</html>
