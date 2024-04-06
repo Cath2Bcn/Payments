@@ -8,10 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 @Entity
 @Data
@@ -32,5 +30,14 @@ public class Player {
         this.getSimulations().add(simulation);
         //if (simulation.getId() != null) simulation.getId().getSimulations().remove(simulation);
         simulation.setPlayer(this);
+    }
+
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    private List<Payment> payments = new ArrayList<>();
+
+    public void addPayment(Payment payment) {
+        this.getPayments().add(payment);
+        //if (payment.getId() != null) payment.getId().getPayments().remove(payment);
+        payment.setPlayer(this);
     }
 }
